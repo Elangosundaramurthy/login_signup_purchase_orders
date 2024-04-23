@@ -1,0 +1,17 @@
+const express = require('express');
+const router = express.Router();
+const authController = require('../controller/AuthOrderController');
+router.post('/signup', authController.signup.bind(authController));
+router.post('/login', authController.login.bind(authController));
+router.post('/orders', authController.createOrder);
+router.get('/orders', authController.getAllOrders);
+router.get('/purchase-list', authController.purchase_list);
+router.post('/order/status', authController.getOrderStatus);
+router.put('/order-updates/:customerId',authController.update);
+router.delete('/order-delete/:customerId',authController.delete);
+router.post('/add-purchase', authController.purchase);
+router.get('/purchase/header_count', authController.headercount);
+router.get('/order/header_count', authController.orderheadercount);
+router.get('/purchase_filter', authController.purchasefiltering);
+router.get('/order_filter', authController.orderfiltering);
+module.exports = router;
